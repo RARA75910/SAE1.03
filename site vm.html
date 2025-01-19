@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Virtuelle & Apache</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Navbar simplifiée -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#accueil">
+            <i class="bi bi-pc-display"></i>
+            VM & Apache
+        </a>
+        <div class="navbar-nav">
+            <a class="nav-link d-flex align-items-center gap-1" href="#introduction">
+                <i class="bi bi-house-door"></i>
+                Introduction
+            </a>
+            <a class="nav-link d-flex align-items-center gap-1" href="#virtualbox">
+                <i class="bi bi-box"></i>
+                VirtualBox
+            </a>
+            <a class="nav-link d-flex align-items-center gap-1" href="#utilisateurs">
+                <i class="bi bi-people"></i>
+                Utilisateurs
+            </a>
+            <a class="nav-link d-flex align-items-center gap-1" href="#apache">
+                <i class="bi bi-server"></i>
+                Apache
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="container-fluid mt-5 pt-4">
+    <!-- Introduction -->
+    <section id="introduction" class="row justify-content-center mb-5">
+        <div class="col-md-10">
+            <div class="card bg-dark text-light">
+                <div class="card-body">
+                    <h1 class="card-title text-center display-4">Installation Machine Virtuelle Linux</h1>
+                    <p class="card-text lead">Ce guide détaille l'installation complète d'un environnement de développement comprenant :</p>
+                    <ul class="list-group list-group-flush bg-dark">
+                        <li class="list-group-item bg-dark text-light">Installation et configuration de VirtualBox</li>
+                        <li class="list-group-item bg-dark text-light">Mise en place d'une machine virtuelle Linux</li>
+                        <li class="list-group-item bg-dark text-light">Configuration des utilisateurs et des droits</li>
+                        <li class="list-group-item bg-dark text-light">Installation et configuration d'Apache</li>
+                        <li class="list-group-item bg-dark text-light">Développement d'un site web avec Bootstrap 5</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VirtualBox -->
+    <section id="virtualbox" class="row justify-content-center mb-5">
+        <div class="col-md-10">
+            <div class="card bg-dark text-light">
+                <div class="card-header">
+                    <h2 class="text-center mb-0">Configuration VirtualBox</h2>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info bg-dark">
+                        <h4>Pourquoi utiliser une machine virtuelle ?</h4>
+                        <p>Une machine virtuelle permet de créer un environnement isolé et sécurisé pour le développement. Elle offre plusieurs avantages :</p>
+                        <ul>
+                            <li>Isolation complète de l'environnement de développement</li>
+                            <li>Possibilité de tester différentes configurations</li>
+                            <li>Protection du système hôte</li>
+                            <li>Facilité de sauvegarde et de restauration</li>
+                        </ul>
+                    </div>
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="card-header">
+                            <h3>Prérequis</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush bg-dark">
+                                <li class="list-group-item bg-dark text-light">Visual C++ 2019 Redistributable</li>
+                                <li class="list-group-item bg-dark text-light">Virtualisation BIOS/UEFI activée</li>
+                                <li class="list-group-item bg-dark text-light">8 GB RAM minimum</li>
+                                <li class="list-group-item bg-dark text-light">20 GB espace disque</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-light">
+                        <div class="card-header">
+                            <h3>Installation</h3>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <li>Télécharger VirtualBox</li>
+                                <li>Installer les prérequis</li>
+                                <li>Exécuter l'installation</li>
+                                <li>Redémarrer le système</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Utilisateurs -->
+    <section id="utilisateurs" class="row justify-content-center mb-5">
+        <div class="col-md-10">
+            <div class="card bg-dark text-light">
+                <div class="card-header">
+                    <h2 class="text-center mb-0">Gestion des Utilisateurs</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="card-header">
+                            <h3>Création des Comptes</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-block">
+                                <pre><code># Création administrateur
+sudo useradd -m -G sudo admin_GrXX_BinomeYY
+sudo passwd admin_GrXX_BinomeYY
+
+# Création utilisateurs
+sudo useradd -m BinomeYY_1
+sudo useradd -m BinomeYY_2</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-light">
+                        <div class="card-header">
+                            <h3>Configuration des Groupes</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-block">
+                                <pre><code># Création groupe
+sudo groupadd BinomeYY
+sudo usermod -a -G BinomeYY BinomeYY_1
+sudo usermod -a -G BinomeYY BinomeYY_2</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apache -->
+    <section id="apache" class="row justify-content-center mb-5">
+        <div class="col-md-10">
+            <div class="card bg-dark text-light">
+                <div class="card-header">
+                    <h2 class="text-center mb-0">Configuration Apache</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="card-header">
+                            <h3>Installation</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-block">
+                                <pre><code>sudo apt update
+sudo apt install apache2
+sudo systemctl start apache2
+sudo systemctl enable apache2</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="card-header">
+                            <h3>Configuration</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-block">
+                                <pre><code># Configuration hôte virtuel
+sudo nano /etc/apache2/sites-available/000-default.conf
+
+# Activation du site
+sudo a2ensite 000-default.conf
+sudo systemctl reload apache2</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-light">
+                        <div class="card-header">
+                            <h3>Sécurité</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning">
+                                <h4>Points de sécurité importants</h4>
+                                <ul>
+                                    <li>Configuration du pare-feu</li>
+                                    <li>Mise à jour régulière</li>
+                                    <li>Gestion des permissions</li>
+                                    <li>Configuration SSL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Développement Web -->
+    <section id="dev-web" class="row justify-content-center mb-5">
+        <div class="col-md-10">
+            <div class="card bg-dark text-light">
+                <div class="card-header">
+                    <h2 class="text-center mb-0">Développement du Site Web</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="card-header">
+                            <h3>Structure HTML</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info bg-dark">
+                                <h4>Structure du Site</h4>
+                                <p>Le site est construit avec une architecture claire :</p>
+                                <ul>
+                                    <li>HTML5 sémantique pour une meilleure accessibilité</li>
+                                    <li>Organisation en sections distinctes</li>
+                                    <li>Navigation intuitive</li>
+                                    <li>Contenu structuré et hiérarchique</li>
+                                </ul>
+                            </div>
+                            <div class="command-block">
+                                <pre><code>├── index.html
+├── css/
+│   ├── custom.css
+│   └── bootstrap.min.css
+└── js/
+    └── bootstrap.bundle.min.js</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="card-header">
+                            <h3>Style CSS</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Personnalisation CSS</h4>
+                            <p>Le style du site combine :</p>
+                            <ul>
+                                <li>Framework Bootstrap 5 pour la mise en page</li>
+                                <li>CSS personnalisé pour le thème vert</li>
+                                <li>Adaptations responsives</li>
+                                <li>Effets visuels et transitions</li>
+                            </ul>
+                            <div class="command-block">
+                                <pre><code>/* Exemple de personnalisation */
+.card {
+    background-color: rgba(224, 255, 224, 0.1);
+    border: 1px solid rgba(224, 255, 224, 0.2);
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-light">
+                        <div class="card-header">
+                            <h3>Composants Bootstrap UI</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Composants Bootstrap UI utilisés</h4>
+                            <ul>
+                                <li>Navbar pour la navigation fixe</li>
+                                <li>Cards pour le contenu principal</li>
+                                <li>Grille responsive pour la mise en page</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-4 mt-5">
+    <div class="container text-center">
+        <p class="mb-0">&copy; 2025 Documentation Machine Virtuelle</p>
+    </div>
+</footer>
+</body>
+</html>

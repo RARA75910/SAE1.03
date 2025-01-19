@@ -1,0 +1,103 @@
+/* Styles personnalisés */
+body {
+    background-color: #1a2f1a;
+    color: #e0ffe0;
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+    background-color: rgba(45, 79, 45, 0.95) !important;
+    border-bottom: 5px solid #142314;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #e0ffe0;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #9ded9d;
+}
+
+.display-4 {
+    color: #9ded9d;
+}
+
+.accordion-item {
+    background-color: rgba(224, 255, 224, 0.1);
+    border: 1px solid rgba(224, 255, 224, 0.2);
+}
+
+.accordion-button {
+    background-color: rgba(45, 79, 45, 0.9) !important;
+    color: #e0ffe0 !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(61, 82, 61, 0.9) !important;
+    color: #9ded9d !important;
+}
+
+.accordion-body {
+    background-color: rgba(20, 35, 20, 0.9);
+    color: #e0ffe0;
+}
+
+.card {
+    background-color: rgba(224, 255, 224, 0.1);
+    border: 1px solid rgba(224, 255, 224, 0.2);
+}
+
+.card-body {
+    color: #e0ffe0;
+}
+
+.bg-light {
+    background-color: rgba(20, 35, 20, 0.8) !important;
+}
+
+code {
+    color: #9ded9d !important;
+    display: block;
+    white-space: pre;
+}
+
+.alert {
+    background-color: rgba(45, 79, 45, 0.9);
+    border-color: rgba(224, 255, 224, 0.2);
+    color: #e0ffe0;
+}
+
+.table {
+    color: #e0ffe0;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(45, 79, 45, 0.4);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(61, 82, 61, 0.6);
+}
+
+.command-block {
+    background-color: rgba(20, 35, 20, 0.8);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid #4a854a;
+}
+
+.section-title {
+    border-bottom: 2px solid rgba(224, 255, 224, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.config-file {
+    background-color: rgba(20, 35, 20, 0.8);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    font-family: monospace;
+    border-left: 4px solid #9ded9d;
+}
